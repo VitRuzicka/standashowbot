@@ -1,14 +1,15 @@
+# -*- coding: utf-8 -*-
 import socket, string
 import standa_hlasky2
-
+import random
 # Set all the variables necessary to connect to Twitch IRC
 HOST = "irc.twitch.tv"
-NICK = "name of your client"
+NICK = "ch4tb0t"
 PORT = 6667
-PASS = "your o:auth token"
+PASS = "oauth:y3fq3o7f3t78f2xwnnw7468g1rz7w8"
 cteniBuf = ""
 ready = False
-
+pozdravy = ["ahoj!", "zdravím", "zdravíčko", "ahojky", "zdarec", "rád tě vidím", "nazdárek"]
 # Connecting to Twitch IRC by passing credentials and joining a certain channel
 s = socket.socket()
 s.connect((HOST, PORT))
@@ -49,7 +50,7 @@ while True:
                     
                     # prikazy pro ruzne aktivity
                     if "ahoj" in message.lower():
-                        Send_message_priv("Ahoj, " + username)
+                        Send_message_priv("@" + username +  " " + pozdravy[random.randint(0, len(pozdravy)-1)])
                     elif message.startswith('!'):
                         if "citat" in message.lower():
                             Send_message_priv(standa_hlasky2.hlaska(standa_hlasky2.cislo(message)))
