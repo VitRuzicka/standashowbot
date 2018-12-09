@@ -3,9 +3,9 @@ import standa_hlasky
 
 # Set all the variables necessary to connect to Twitch IRC
 HOST = "irc.twitch.tv"
-NICK = "ch4tb0t"
+NICK = "yournickname"
 PORT = 6667
-PASS = "oauth:y3fq3o7f3t78f2xwnnw7468g1rz7w8"
+PASS = "your o:auth token"
 readbuffer = ""
 MODT = False
 
@@ -16,7 +16,7 @@ s.send("PASS " + PASS + "\r\n")
 s.send("NICK " + NICK + "\r\n")
 s.send("JOIN #standashow \r\n")
 
-# Method for sending a message
+# Function for seding messages
 def Send_message_priv(message):
     s.send("PRIVMSG #standashow :" + message + "\r\n")
 
